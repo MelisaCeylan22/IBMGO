@@ -13,6 +13,8 @@ from __future__ import annotations
 
 import numpy as np
 
+from kod.algoritmalar.izleme import EvaluationTrace
+
 from kod.algoritmalar.bmgo import _repair_and_prune
 from kod.algoritmalar.fitness import _rare_target_weights, calculate_fitness
 
@@ -84,9 +86,12 @@ def genetic_algorithm_optimizer(
     pop_size=12, max_generations=80, random_seed=42,
     critical_feature_indices=None, min_coverage=1.0,
     w_time=0.4, w_count=0.4, w_redundancy=0.2,
-    crossover_rate=0.8, mutation_rate=None, w_rare=0.0,
+    crossover_rate=0.8, mutation_rate=None, w_rare=0.0, trace=None,
 ):
     """Seçim, çaprazlama, mutasyon ve elitizm kullanan ikili GA.
+
+    ``trace`` sözlüğü verilirse başlangıç ve gerçek çağrı geçmişi kaydedilir.
+    Üçlü dönüş biçimi ve rastgele akış değişmez.
 
     Her yeni aday BMGO ile *aynı* `_repair_and_prune` işleminden geçer.
     Dolayısıyla fark, GA ile BMGO'nun arama hareketlerinden kaynaklanır.
@@ -113,13 +118,18 @@ def genetic_algorithm_optimizer(
         return _repair_and_prune(bits, coverage, times, critical, required,
                                  parents_of, children_of, depth)
 
+    tracking = EvaluationTrace(trace)
+    step = 0
+
     def fitness(bits):
-        return calculate_fitness(
+        score = calculate_fitness(
             bits, coverage, times,
             critical_feature_indices=critical, min_coverage=min_coverage,
             w_time=w_time, w_count=w_count, w_redundancy=w_redundancy,
             dependency_edges=edges, w_rare=w_rare, _rare_weights=rare_weights,
         )
+        tracking.record(score, step, "initial" if step == 0 else "generation")
+        return score
 
     population = np.asarray(
         [repair(rng.integers(0, 2, size=n, dtype=np.int8))
@@ -129,6 +139,7 @@ def genetic_algorithm_optimizer(
     best_idx = int(np.argmin(scores))
     best_solution = population[best_idx].copy()
     best_score = float(scores[best_idx])
+    tracking.finish_initial(best_score)
     convergence = np.empty(max_generations, dtype=float)
 
     def tournament():
@@ -136,6 +147,7 @@ def genetic_algorithm_optimizer(
         return population[candidates[np.argmin(scores[candidates])]]
 
     for generation in range(max_generations):
+        step = generation + 1
         next_population = []
         # Bir elit korunur, kalan P-1 çocuk + elit tekrar değerlendirilir.
         elite = population[int(np.argmin(scores))].copy()
@@ -160,4 +172,5 @@ def genetic_algorithm_optimizer(
             best_solution = population[best_idx].copy()
         convergence[generation] = best_score
 
+    tracking.finish(best_score, max_generations)
     return best_solution, best_score, convergence

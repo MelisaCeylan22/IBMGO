@@ -1,221 +1,69 @@
-# Telekom regresyon test seçimi ve önceliklendirme
+# IBMGO projesi ve sunum kullanımı
 
-Bu çalışma, **tamamen kurgusal** bir telekom kampanya / taahhüt sisteminin
-regresyon testlerini azaltmak için dört yöntemi karşılaştırır:
+Ana sunum `IBMGO_Sunum.ipynb` dosyasıdır. Python çekirdeğiyle proje klasöründe açıp hücreleri sırayla çalıştırın. Açılış akışı optimizasyon başlatmaz. Kayıtlı ana dayanıklılık sonuçlarını okur.
 
-1. **Greedy:** Açgözlü kapsam onarımı ve gereksiz testlerin ayıklanması.
-2. **GA:** İkili genetik algoritma (seçim, çaprazlama, mutasyon, elitizm).
-3. **BMGO:** TSM, MH, BMH, MSF hareketlerini kullanan ikili MGO uyarlaması.
-4. **IBMGO (ana önerilen yöntem):** Problem boyutuna göre MGO hareketini
-   ayarlayan, adaptif V-tipi ikili dönüşüm ve komşuluk araması kullanan
-   deneysel BMGO. Orta/büyük paketlerde referans MGO yazar kodundaki katsayı
-   ailelerine daha yakın TSM/MH/BMH/MSF, ICMIC kaotik başlangıç ve doğrusal
-   olmayan kontrol devreye girer. **Özgün MGO veya Li ve ark. (2024) BIMGO
-   algoritmasının birebir kopyası değildir; probleme özgü bir uyarlamadır.**
+## Kurulum
 
-İlk BMGO, geliştirmenin etkisini incelemek amacıyla ek karşılaştırmadır.
-Sunumun ana sonucu IBMGO'nin GA ve Greedy ile karşılaştırılmasıdır.
-
-## Notebook kullanımı
-
-`IBMGO_Sunum.ipynb` dosyasındaki **0. Ayarlar** bölümünden veri, amaç ağırlıkları,
-algoritmalar ve grafik örnekleri düzenlenir. Hücreler yukarıdan aşağı çalıştırılır.
-
-- `ARAMA["havuzlar"] = ["A", "B"]` orijinal ve seyrek kritik kapsamlı havuzları eşleştirir.
-- `AMAC["agirliklar"]["w_rare"]` sıfırdan büyük olduğunda nadir hedef kaybı üç yöntemde de puana katılır.
-- GA nesli otomatik seçildiğinde planlanan IBMGO bütçesine en yakın nesil sayısı kullanılır.
-- Hızlı kontrol için 50 ve 100 test, iki veri tohumu yeterlidir.
-
-Notebook deney akışı `kod/deneyler/notebook_deneyi.py`, görseller `kod/raporlama`,
-veri üretimi `kod/veri`, amaç ve algoritmalar `kod/algoritmalar` içinde bulunur.
-
-## Kurulum ve çalıştırma
-
-Python 3.10 ve üzeri önerilir.
-
-```bash
-python -m pip install numpy matplotlib
-python -B -m unittest kod.testler.test_project -v
-python -m kod.deneyler.main
-python -m kod.deneyler.priority_analysis --random-orders 100
-python -m kod.deneyler.ablation --sizes 250 500 --runs 2
+```powershell
+python -m pip install numpy pandas matplotlib ipywidgets nbformat nbclient ipykernel
+python -B -m unittest discover -s kod/testler -v
 ```
 
-`main.py` 50, 100, 250, 500 ve 1000 testlik paketleri her stokastik yöntem
-için 3 ayrı başlangıçla çalıştırır. `priority_analysis.py` ilk seed için
-seçilmiş aynı testleri farklı sıralarla karşılaştırır. `ablation.py` ise
-her iyileştirmeyi ayrı ayrı açıp kapatarak denetler.
-Deney sayısını artırmak ve başka kurgusal
-senaryoları üretmek için:
+## Üç ayrı deney
 
-```bash
-python -m kod.deneyler.main --runs 10 --profile expanded --data-seed 53 --output-dir sonuclar/dogrulama53
-python -m kod.deneyler.priority_analysis --data-seed 53 --output-dir sonuclar/dogrulama53
-```
+| Deney | Boyutlar | Veri tohumları | Algoritma tekrarları | Kaynak |
+|---|---|---|---|---|
+| Ana dayanıklılık arşivi | 50, 100, 250, 500, 1000 | 83, 97, 109 | IBMGO ve GA için 42–51, Greedy bir kez | `sonuclar/dayaniklilik_83`, `dayaniklilik_97`, `dayaniklilik_109` |
+| Hızlı canlı demo | Varsayılan 50 | 83 | 42, Greedy bir kez | Yeni çalışma klasörü |
+| Ek ölçek deneyi | 500, 1000, 5000 | 83, 42, 41, 97, 109 | Eski notebook ayarları, tek algoritma tohumu | `IBMGO_Ek_Olcek_Deneyi.ipynb` |
 
-Eski veri profiliyle geriye dönük karşılaştırma:
+Ana arşiv 315 ham kayıt içerir. IBMGO ve GA boyut başına 30, Greedy 3 kayıtla özetlenir. Ham dosyaların adı `ablasyon_veri<tohum>.csv` olsa da yalnız IBMGO, GA ve Greedy içerir. İlk BMGO ve tüm bileşenlerin tam ablasyonu bu dosyalarda yoktur.
 
-```bash
-python -m kod.deneyler.main --runs 3 --profile standard --data-seed 42 --output-dir sonuclar/standart
-```
+Ek ölçek notebook'u önceki kaynak akışını korur, büyük deneyi açıkça başlatabilir. Bu pakette o ölçek deneyine ait tamamlanmış ve ayar dosyasıyla doğrulanabilen ham sonuçlar yoktur. Ana tabloyla birleştirilmez.
 
-**Dikkat:** Yeni ana deney çıktıları varsayılan olarak
-`sonuclar/nihai_bmgo` dizinine gider; eski deney dosyaları korunur.
-Aynı çıkış klasörüyle yeniden çalıştırırsanız o klasörde aynı isimli
-CSV/PNG dosyaları güncellenir. Önceden kalan başka isimli grafikler silinmez.
+## Canlı gösterim
 
-## Telekom senaryoları
+1. Ana notebook'ta hazır mod seçin. Test boyutları, tohumlar, kapsam, ağırlıklar, popülasyon, iterasyon ve yerel aday sayısını panelden değiştirin.
+2. Veri alanında bir havuz, test ve hedef seçin. Süreyi, kritik hedef işaretini veya kapsam hücresini değiştirip **Veri değişikliğini uygula** düğmesine basın. **Orijinal veriye dön** seçilen havuzu sıfırlar.
+3. **Deneyi çalıştır / Sonuçları güncelle** bütün yöntemleri aynı kopyayla çalıştırır. İlerleme tamamlanmış koşum sayısıdır. Her yöntem kendi araması sürerken sayaç o yöntem bitince ilerler.
+4. Sonuç ekranındaki boyut ve koşum filtreleri yeniden arama yapmaz. Ham tablo ve ortalama özeti ayrı gösterilir.
+5. **Kayıtlı ana deneyi göster** arşive döner. Canlı panel ayarları arşiv sonuçlarına uygulanmaz. Sonuç kaynağı ve kullanılan ayarlar ekranda kalır.
 
-Genişletilmiş veri üretiminde **dokuz** kurgusal teklif / paket ailesi bulunur.
-İlk 50 senaryodaki beş temel teklif şunlardır:
+Widget kurulumu yoksa notebook'un sonundaki `CALISTIR` hücresi aynı motoru kullanır. Ayarlar `AYARLAR` üzerinden yönetilir. Veri kopyaları `deney.pool`, `deney.set_pool`, `deney.reset_pool` ile düzenlenir. Widgetsız kullanımda eski tabloyu yeniden kullanmadan önce `deney.stale` kontrol edilir.
 
-- 12 ay indirim
-- yeni müşteri internet hediyesi
-- ücretli ek internet paketi
-- sadakat indirimi
-- taahhüt yenileme
+## Problem ve amaç
 
-50 testin ötesindeki yeni senaryo grupları dört ayrı teklife daha yayılır:
+Telekom teklifleri sentetiktir. Kampanya aktivasyonu, fatura, tekrar istek, kapalı başvuru tarihi, pasif hat, numara taşıma, ikinci hat, genç tarifesi ve dolaşım izni gibi kurallar kullanılır. Gerçek operatör sistemine bağlı değildir.
 
-- numara taşıma sonrası 15 GB paketi
-- aileye bağlı ikinci hatta %10 indirim
-- gençlere özel 20 GB tarifesi ve yaş denetimi
-- yurt dışı 3 GB paketi ve uluslararası dolaşım izni
+Her test 0/1 seçilir. Kritik kapsam %100, genel kapsam en az %90, ön koşul ihlali sıfırdır. Ön koşul grafiği sıralı ve döngüsüzdür, ebeveyn indeksi çocuktan küçüktür. Gerekli kapsamın olanaksızlığı arama öncesi bildirilir.
 
-İş akışları; başarı, uygunsuz müşteri, kapalı başvuru tarihi, tekrar kullanım,
-fatura kontrolü, son dönem, iptal, idempotent istek, eşzamanlı aktivasyon,
-ödeme başarısızlığı ve kota tükenmesini içerir. Genişletilmiş profilde ayrıca
-oturum süresi dolması, numara taşıma beklenmesi, kısıtlı müşteri, ara dönem
-tarife değişikliği, mükerrer faturalama, kota yenilenmesi ve hat sahipliği
-değişikliği bulunur. İkinci hat için ana hattın aktif olması, genç tarifesinde
-yaş sınırı ve yurt dışı paketinde dolaşım izni, ayrı başarısızlık senaryolarıyla
-sınanır. Ücretli yeni paketlere ödeme başarısızlığı kontrolü de uygulanır.
+Uygun paketlerde fitness, süre oranı, test sayısı oranı, tekrar oranı ve isteğe bağlı nadir hedef kaybının ağırlıklı ortalamasıdır. Ana ağırlıklar 0,40 / 0,40 / 0,20 / 0. Bütün ağırlıklar toplamlarına bölünür. Düşük fitness daha iyidir.
 
-**Önemli:** Birbirinden farklı müşteri, tarife, tahsilat ve fatura dönemi
-bağlamları yeni test kapsam hedefleri üretebilir. Bunlar doğrulanmış gerçek
-operatör kuralları değil, örnek iş kurallarıdır. Bölge/şehir tek başına
-bir gereksinim sayılmaz.
+MGO hareketleri ikili test seçimine uyarlanmıştır. IBMGO çeşitli başlangıç, onarım, yerel arama ve mevcut boyuta duyarlı politikayı kullanır. Politika 42 ve 53 veri tohumlarıyla keşifsel olarak belirlenmiştir. Bu düzenleme üreticiyi, onarımı veya arama politikasını değiştirmez. Özgün MGO veya makaledeki yöntemin birebir kopyası iddiası yoktur.
 
-## Optimizasyon hedefi ve kısıtlar
+## Bütçe ve yakınsama
 
-- Kritik gereksinim kapsamı **%100** olmalıdır.
-- Toplam gereksinim kapsamı **en az %90** olmalıdır.
-- Seçilen testlerin tüm ön koşul testleri de seçilmiş olmalıdır.
-- Uygun çözümler arasında koşum süresi, test sayısı ve tekrarlı kapsam azaltılır.
+Standart IBMGO planı `12 + 20 × (4 × 12 + 12) = 1212`, GA planı `12 + 100 × 12 = 1212` çağrıdır. İleri ayarlardaki spiral adaylar da bütçeye katılır. En yakın GA nesil sayısı otomatik seçilir, bütçe farkı gösterilir. Gerçek çağrı sayıları izden okunur. Greedy tek deterministik yöntemdir. Çağrı sayısı, benzersiz paket veya aynı çalışma süresi anlamına gelmez.
 
-Kısıtlar sağlanmadığında fitness büyük ceza alır. Uygun çözümlerin fitness
-fonksiyonu:
+Algoritmalardaki isteğe bağlı `trace={}` parametresi mevcut üçlü dönüşü değiştirmez. Başlangıç, her amaç çağrısı, yerel/spiral arama ve adım sonu eğrileri kaydedilir. İterasyon/nesil grafikleri başlangıç popülasyonunu içerir. Ortak grafik gerçek kümülatif değerlendirmeyi kullanır. Aynı veri ve boyuttaki diğer tekrarlar silik gösterilir.
 
-```text
-F(X) = 0.4 × (seçilen süre / toplam süre)
-     + 0.4 × (seçilen test / toplam test)
-     + 0.2 × (tekrarlı kapsam / toplam kapsam isabeti)
-```
+Nihai en iyiye ilk erişim o koşumun nihai değerine ilk erişimdir. Eşitlik toleransı rtol=1e-10, atol=1e-12. Küresel optimum veya kesin yakınsama adımı değildir. Arşivde iz olmadığından geçmiş üretilmez.
 
-**Düşük fitness daha iyi**. Farklı büyüklüklerdeki mutlak fitness değerleri
-aynı problem gibi doğrudan karşılaştırılmamalıdır.
+## Yeni sonuçların kaydı
 
-## Karşılaştırma adaleti
+Her yeni çalışma `sonuclar/sunum_calistirmalari/<UTC_zamanı>_<kimlik>` altında saklanır.
 
-Greedy tek deterministik çalışma yapar; diğerleri ayrı rastgele başlangıçlarla
-çalışır. Her üç popülasyon algoritması aynı uygunluk onarımını ve amaç
-fonksiyonunu kullanır. Böylece değişen temel bileşen arama mekanizması olur.
+- `ayarlar.json` ayarları, çözülmüş politika seçeneklerini, planlanan bütçeleri, girdi ve kaynak kod özetlerini, sürümleri ve tamamlanma durumunu içerir.
+- `girdi_<boyut>_<tohum>.npz` gerçek kullanılan kapsamı, süreleri, bağımlılıkları ve kritik hedefleri içerir.
+- `veri_<boyut>_<tohum>.json` senaryo metinleri ve kaynak metadata içerir. Düzenlenmiş süre/kapsam/kritiklik için NPZ esas alınır.
+- `ham_sonuclar.csv`, `ozet.csv`, `izler_ve_secimler.json` aynı hesaplamanın çıktılarıdır.
 
-12 bireylik popülasyonda her yöntem toplam **1212 fitness** değerlendirmesi
-yapar:
+Önbellekten optimizasyon sonucu döndürülmez. Girdi parmak izi veri dizilerini ve bütün deney ayarlarını kapsar. Yeni hesaplama başarılı olmadan eski sonuç yenisiyle değiştirilmez.
 
-- BMGO: 12 başlangıç + 25 iterasyon × 48 aday.
-- IBMGO: 12 başlangıç + 20 iterasyon × (48 MGO adayı + 12 komşu).
-- GA: 12 başlangıç + 100 nesil × 12 aday.
+## Eksik arşivler ve sınırlar
 
-Eşit değerlendirme sayısı, eşit çalışma süresi anlamına gelmez. Her yöntem
-ayrı ayrı gerçek çalışma süresiyle de raporlanır.
+`sonuclar/nihai_bmgo`, `sonuclar/bagimsiz_dogrulama_seed71`, seed 42 önceliklendirme sonucu ve tüm bileşenlerin tam ablasyon çıktıları mevcut pakette bulunmuyor. Önceki belgelerde bunlara dayanan sayısal iddialar ana sunumdan kaldırıldı. İlgili betikler bu deneyleri üretebilir, betik varlığı deneyin yapılmış olduğunu doğrulamaz.
 
-## Önceliklendirme ve APFD ayrımı
+Arşiv CSV'lerinde seçili test listeleri, yakınsama geçmişi, başlangıç popülasyonu puanı ve tam/seçili süre toplamları yoktur. Çağrı sütunu önceki betiğin planlanan bütçesidir. Bunlar arşivden ölçülmüş gerçek iz gibi gösterilmez.
 
-Seçilmiş testler, bağımlılıklar korunarak yeni kritik gereksinimlerin
-koşum süresine oranı yüksek olanlardan başlanarak sıraya konur.
-`ilk_ceyrek_kritik_kapsam_yuzde` metriği, sıradaki testlerin ilk %25'inin
-kapsadığı kritik gereksinim oranını gösterir.
-
-**Bu metrik APFD değildir.** Veri üreticisi doğrulanmış hata tespit matrisi
-üretmez. Bu yüzden gerçek hata keşif hızı veya APFD sonucu iddia edilmez;
-`APFD=VERI_YOK` korunur. Ayrıca sentetik koşum süreleri, gerçek CI/CD üzerinde
-ölçülmüş sürelerden farklıdır.
-
-`priority_analysis.py` seçilmiş **aynı testleri** koruyarak, kritik kapsamın
-ne kadar çabuk tamamlandığını iki sıralamayla karşılaştırır: önceliklendirilmiş
-sıra ve rastgele seçilmiş, ancak bütün ön koşulları koruyan 100 sıra. Böylece
-test seçme başarısı ile test sıralama başarısı birbirine karıştırılmaz.
-`kritik_kapsam_auc` (0–1 arası) kritik kural kapsamının toplam koşum zamanı
-boyunca ne kadar erken biriktiğini özetler; **APFD değildir**.
-
-## Çıktılar
-
-Ana deney sonucunda `sonuclar/nihai_bmgo` klasörüne otomatik olarak:
-
-- `algoritma_karsilastirma.csv`: Her tohum için ayrıntılı deney sonuçları.
-- `algoritma_ozet.csv`: Her paket/yöntem için ortalama ve standart sapma.
-- `algoritma_ozet.png`: Sunum için özet karşılaştırma tablosu.
-- `algoritma_karsilastirma.png`: Süre tasarrufu karşılaştırması.
-- `algoritma_fitness_karsilastirma.png`: Fitness karşılaştırması.
-- `bmgo_iyilestirme_yakinsama.png`: 1000 testte eşit değerlendirme bütçesi.
-- `onceliklendirme_analizi.csv`: Kritik kapsamın erken kazanımı ve 100 rastgele
-  bağımlılık-geçerli sıraya göre karşılaştırması.
-- `onceliklendirme_kritik_kapsam.png`: Kritik kapsamın tamamlanan koşum süresine
-  göre birikmesi; erken geri bildirim iddiası için ayrı grafik.
-- `telekom_50_ornek_senaryo.csv`: Örnek senaryo açıklamaları.
-- `telekom_<N>_secili_testler.csv`: Ana IBMGO tarafından seçilmiş ve sıralanmış testler.
-- `telekom_<N>_bmgo_ilk_secili_testler.csv`: İlk BMGO'nun kontrol amaçlı seçtiği testler.
-
-`ablation.py` ayrıca `sonuclar/ablasyon_veri42.csv` ve `.png` üretir;
-ayrı `--output-dir` ve `--data-seed` ile doğrulama deneyleri saklanabilir.
-
-### Ablasyon: Yarar sağlayan ve sağlamayan teknikler
-
-Deney varyantları: ilk BMGO; önceki adaptif BMGO+; referans MGO hareketleri;
-kaotik başlangıç; doğrusal olmayan kontrol; ayrıca spiral hareket ve sigmoid
-ikili dönüşüm; hareketleri karıştırma, ince V-dönüşüm ve çoklu komşuluk araması.
-Spiral ve sigmoid seçenekleri **denenmiştir** ancak varsayılan IBMGO'ye
-eklenmemiştir. Özellikle sigmoid dönüşüm bazı veri kümelerinde ciddi performans
-düşüşü vermiştir. Aynı aday bütçesiyle kıyas yapılır. Deneyin tek amacı
-başarılı görünen değişimleri raporlamak değil, başarısız denemeleri de
-belgelendirmektir.
-
-### Boyuta duyarlı IBMGO politikası
-
-| Test sayısı | Uygulanan hareket/yerel arama |
-| --- | --- |
-| 1–250 | Adaptif V-dönüşüm, çeşitli başlangıç ve tekli swap komşuluğu |
-| 251–750 | Referansa yakın hareketler, ICMIC, doğrusal olmayan kontrol ve çoklu komşuluk |
-| 751+ | Referans/ilk hareketlerin %50 karışımı, ICMIC, doğrusal olmayan kontrol ve tekli komşuluk |
-
-Bu aralıklar **42 ve 53 veri tohumlarında yapılan keşifsel çalışmadan sonra
-belirlenmiştir**. Evrensel bir biyolojik/istatistiksel eşik iddiası değildir.
-`--data-seed 71`, bu kuralı belirledikten sonra ilk kez kullanılan bağımsız
-doğrulama verisidir. Bu aşamanın sonuçlarına bakılarak aralıklar değiştirilmez.
-
-## Bilimsel çalışma notu
-
-Başlangıç parametreleri üzerinde yapılan ilk denemeler **keşifsel** niteliğe
-sahiptir. Bir algoritmayı kazandırmak için veri veya karşılaştırma ayarları
-sonradan değiştirilmemelidir. Bulguların dayanıklılığını denetlemek için
-farklı `--data-seed` değerleri ve çoklu bağımsız koşumlar kullanılmalıdır.
-IBMGO'yi özgün, sürekli MGO'dan ve ilk ikili prototipten kavramsal olarak
-ayırmak gerekir. `--data-seed 42` ve `53` **geliştirme/ayar seçimi**, `71` ise
-**bağımsız doğrulama** için kullanılmıştır. İki algoritma arasındaki küçük
-ortalama farkları, yeterli koşum ve istatistiksel denetim olmadan üstünlük
-kanıtı olarak sunulmamalıdır.
-
-### Kaynaklar
-
-- Abdollahzadeh ve ark. (2022), *Mountain Gazelle Optimizer: A new
-  Nature-inspired Metaheuristic Algorithm for Global Optimization Problems*.
-  DOI: [10.1016/j.advengsoft.2022.103282](https://doi.org/10.1016/j.advengsoft.2022.103282).
-  [Özgün yazar kodu](https://www.mathworks.com/matlabcentral/fileexchange/118680-mountain-gazelle-optimizer).
-- Li, Geng ve Sheng (2024), *An improved mountain gazelle optimizer based on
-  chaotic map and spiral disturbance for medical feature selection*.
-  DOI: [10.1371/journal.pone.0307288](https://doi.org/10.1371/journal.pone.0307288).
-
-Bu kaynaklar yöntem seçim ve iyileştirme fikirlerini destekler; bizim kurgusal
-telekom veri kümesindeki başarıyı bağımsız olarak doğrulamaz.
+Sentetik test süreleri toplamı tahmini paket koşum süresidir. Optimizasyonun duvar saatiyle ölçülen arama süresi ayrıca gösterilir. Hata tespit matrisi yoktur. APFD ve gerçek hata keşif başarısı raporlanmaz. IBMGO'nun her ölçütte veya her boyutta GA'dan üstün olduğu iddia edilmez.

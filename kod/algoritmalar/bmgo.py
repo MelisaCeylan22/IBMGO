@@ -11,6 +11,8 @@ from __future__ import annotations
 
 import numpy as np
 
+from kod.algoritmalar.izleme import EvaluationTrace
+
 from kod.algoritmalar.fitness import _rare_target_weights, calculate_fitness
 
 
@@ -173,14 +175,26 @@ def binary_mountain_gazelle_optimizer(
     flip_rate_end=0.02,
     local_search_strategy="swap",
     w_rare=0.0,
+    trace=None,
 ):
     """En iyi ikili seçimi, fitness'ı ve iterasyon eğrisini döndürür.
+
+    ``trace`` sözlüğü verilirse gerçek çağrı geçmişi ve başlangıç puanı
+    bu sözlüğe yazılır. Üçlü dönüş biçimi ve rastgele akış değişmez.
 
     Varsayılan değerler özgün BMGO deneyiyle uyumludur. İyileştirilmiş
     varyant ``adaptive_binary=True``, ``diverse_initialization=True`` ve
     ``local_search_trials>0`` kullanır. Her yerel arama denemesi ayrıca bir
     fitness değerlendirmesidir; karşılaştırmada bu bütçe sayılmalıdır.
     """
+    tracking = EvaluationTrace(trace)
+    step, phase = 0, "initial"
+
+    def evaluate(*args, **kwargs):
+        score = calculate_fitness(*args, **kwargs)
+        tracking.record(score, step, phase)
+        return score
+
     coverage = (np.asarray(coverage_matrix) != 0).astype(np.int32)
     duration = np.asarray(durations, dtype=float)
     if coverage.ndim != 2:
@@ -259,7 +273,7 @@ def binary_mountain_gazelle_optimizer(
             initial, coverage, duration, critical, required_count,
             parents_of, children_of, depths,
         )
-        scores[i] = calculate_fitness(
+        scores[i] = evaluate(
             binary_pop[i], coverage, duration,
             w_time=w_time, w_redundancy=w_redundancy, w_count=w_count,
             w_rare=w_rare, _rare_weights=rare_weights,
@@ -271,9 +285,11 @@ def binary_mountain_gazelle_optimizer(
     best_solution = binary_pop[best_idx].copy()
     best_continuous = continuous_pop[best_idx].copy()
     best_fitness = float(scores[best_idx])
+    tracking.finish_initial(best_fitness)
     curve = np.empty(max_iter, dtype=float)
 
     for iteration in range(max_iter):
+        step, phase = iteration + 1, "mgo"
         a = -1.0 - iteration / max_iter
         progress = iteration / max(1, max_iter - 1)
         new_cont = []
@@ -350,7 +366,7 @@ def binary_mountain_gazelle_optimizer(
                     new_bits, coverage, duration, critical, required_count,
                     parents_of, children_of, depths,
                 )
-                score = calculate_fitness(
+                score = evaluate(
                     repaired, coverage, duration,
                     w_time=w_time, w_redundancy=w_redundancy, w_count=w_count,
                     w_rare=w_rare, _rare_weights=rare_weights,
@@ -378,6 +394,7 @@ def binary_mountain_gazelle_optimizer(
         # uyarlayan deneysel seçenek: seçilmiş pahalı testten farklı bir teste
         # geç ve aynı kapsama/bağımlılık onarımından sonra sonucu değerlendir.
         # BMGO'nun TSM/MH/BMH/MSF adaylarına ek olarak sayılır.
+        phase = "local"
         for _ in range(int(local_search_trials)):
             selected_ids = np.flatnonzero(best_solution)
             excluded_ids = np.flatnonzero(~best_solution.astype(bool))
@@ -423,7 +440,7 @@ def binary_mountain_gazelle_optimizer(
                 local, coverage, duration, critical, required_count,
                 parents_of, children_of, depths,
             )
-            local_score = calculate_fitness(
+            local_score = evaluate(
                 repaired, coverage, duration,
                 w_time=w_time, w_redundancy=w_redundancy, w_count=w_count,
                 w_rare=w_rare, _rare_weights=rare_weights,
@@ -444,6 +461,7 @@ def binary_mountain_gazelle_optimizer(
 
         # Spiral bozulma: elite yaklasan surekli arama adimini ikili
         # V-transfer ile cevirir. Her deneme fitness butcesine dahildir.
+        phase = "spiral"
         for _ in range(int(spiral_search_trials)):
             idx = int(rng.integers(pop_size))
             current = continuous_pop[idx]
@@ -474,7 +492,7 @@ def binary_mountain_gazelle_optimizer(
                 local, coverage, duration, critical, required_count,
                 parents_of, children_of, depths,
             )
-            spiral_score = calculate_fitness(
+            spiral_score = evaluate(
                 repaired, coverage, duration,
                 w_time=w_time, w_redundancy=w_redundancy, w_count=w_count,
                 w_rare=w_rare, _rare_weights=rare_weights,
@@ -492,4 +510,5 @@ def binary_mountain_gazelle_optimizer(
                 continuous_pop[worst] = spiral
         curve[iteration] = best_fitness
 
+    tracking.finish(best_fitness, max_iter)
     return best_solution, best_fitness, curve

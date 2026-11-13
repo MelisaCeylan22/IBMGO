@@ -1,0 +1,58 @@
+{
+  "source": "Yeni çalıştırma",
+  "settings": {
+    "mode": "Hızlı canlı demo",
+    "sizes": [
+      250
+    ],
+    "data_seeds": [
+      83
+    ],
+    "algorithm_seeds": [
+      42,
+      43
+    ],
+    "min_coverage": 0.9,
+    "w_time": 0.4,
+    "w_count": 0.4,
+    "w_redundancy": 0.2,
+    "w_rare": 0.0,
+    "population": 12,
+    "iterations": 20,
+    "local_trials": 12,
+    "adaptive_policy": true,
+    "advanced": {}
+  },
+  "fingerprint": "d7a92837ac002bd82489ecb27935d9f7f77a871efd1566edaed50c9bf1fc7bdc",
+  "inputs": {
+    "250_83": "c90df5b72bf1a6033193dce3d4fdf0c521771542f5ff20936e5ffd4aad849d3f"
+  },
+  "resolved_options": {
+    "250": {
+      "adaptive_binary": true,
+      "diverse_initialization": true,
+      "local_search_trials": 12
+    }
+  },
+  "budgets": {
+    "250": {
+      "ibmgo": 1212,
+      "ga": 1212,
+      "generations": 100,
+      "difference": 0
+    }
+  },
+  "python": "3.13.2",
+  "numpy": "2.2.6",
+  "pandas": "2.3.3",
+  "code_hashes": {
+    "kod\\deneyler\\sunum_deneyi.py": "678def6532d88849d6dfb1daade70ec6d66fe9d11802b197d67e68ca11422188",
+    "kod\\algoritmalar\\bmgo.py": "e1e70f167326c0ba187301269008173b0021096b38e48a5feeacb1052b011d7d",
+    "kod\\algoritmalar\\baselines.py": "77ec4c241c3825a6a277982af35a639b984373dd1a409e30e3f9cfbcc2d080bd",
+    "kod\\algoritmalar\\fitness.py": "399fe46a1f0462a600dea347d85226ff821b3aea0fda54335b6f8f9c5fc992d1",
+    "kod\\algoritmalar\\izleme.py": "8d780480d359fb7bc1fc2e48a91286f8e9deb86c457b903971635f9774c9b365",
+    "kod\\veri\\data_generator.py": "26ec6cf7b4ebfe91392fb01761534a19db3691084454048c401c642ac91a0d5e"
+  },
+  "status": "complete",
+  "completed_runs": 5
+}
