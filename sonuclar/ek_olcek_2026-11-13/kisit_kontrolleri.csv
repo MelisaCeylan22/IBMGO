@@ -1,0 +1,7 @@
+﻿test_sayisi,yontem,kosum_sayisi,gecerli_oran,kritik_kapsam_yuzde_min,genel_kapsam_yuzde_min,on_kosul_ihlali_max
+2000,IBMGO,9,1.0,100.0,90.0355871886121,0
+2000,GA,9,1.0,100.0,90.0355871886121,0
+2000,Greedy,3,1.0,100.0,90.0355871886121,0
+5000,IBMGO,9,1.0,100.0,90.10416666666666,0
+5000,GA,9,1.0,100.0,90.10416666666666,0
+5000,Greedy,3,1.0,100.0,90.10416666666666,0

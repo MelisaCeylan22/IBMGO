@@ -55,3 +55,26 @@ Ayrı, geçici bir notebook çekirdeğinde gerçek widget düğmeleriyle test s�
 - Bu doğrulama kaydı ve iki yeni küçük deney klasörü.
 
 Bu düzenleme yereldir. GitHub'a gönderme veya commit yapılmadı.
+
+
+## Sonuç ekranının sadeleştirilmesi · güncel revizyon
+
+13 Kasım 2026 tarihinde sonuç ekranı yeniden düzenlendi.
+
+- Ana arşiv ve hesaplama kaynaklarına ait 28 dosyanın SHA-256 özetleri düzenleme öncesiyle aynı. Ana plan 5 boyut, 3 veri tohumu ve IBMGO/GA için 10 tekrar olarak korundu. Arşiv 315 kayıt içeriyor.
+- Genel özet ve tek havuz ayrıntısı ayrı sekmelerde. Ayrıntıda deney özeti, yöntem tablosu, önce–sonra grafiği ve seçilebilir iterasyon görünümü var. Ayarlar, kaynak yolları, ham kayıtlar, değerlendirme olayları ve seçili testler kapalı teknik bölümlerde.
+- Karşılaştırma tablosu gerçek satırlardan ortalama ve örnek standart sapma hesaplıyor. Vurgu ölçüt bazında ve gösterim hassasiyetindeki eşitlikleri koruyor. Başarı etiketi üç kısıt kontrolüne bağlı.
+- Arşivde mutlak süre ve iz bulunmadığı için süre oranı gösteriliyor. İterasyon bölümü bir açıklama içeriyor. Eksik süre yerine sıfır üretilmiyor.
+- Varsayılan yeni demo 250 test, veri tohumu 83 ve algoritma tohumu 42. Standart popülasyon, iterasyon, arama politikası ve amaç fonksiyonu korunuyor.
+- Gerçek panel düğmesiyle üç yöntem çalıştırıldı. İlk çalışmada IBMGO'nun 20 iterasyonluk izinde nihai puana ilk erişim 12. iterasyon. İşaret, başlangıç dahil gerçek eğriyle ve değerlendirme iziyle karşılaştırıldı.
+- Süre verisi düzenlenip tekrar üç yöntem çalıştırıldı. Sonuç kimlikleri, tablolar ve grafikler yeni sonuç nesnesinden güncellendi. Geçersiz süre arama başlamadan reddedildi ve son geçerli sonuç korundu.
+- Yöntem, veri, büyüklük ve iz görünümü filtreleri izlenerek yeni optimizasyon başlatmadıkları doğrulandı. Eski widgetlar değiştirilip kapatılıyor. Sonuçlar alta eklenmiyor.
+- Tek koşum ve çoklu tekrar etiketleri, küçük arama süreleri, yuvarlama eşitlikleri, başlangıçta düz iz ve eksik arşiv bilgisi için kontroller eklendi. Toplam 28 test geçti.
+- Notebook temiz Python çekirdeğinde çalıştırılıp ana arşiv görünümü ve gerçek PNG widgetlarıyla kaydedildi. Genel özet, canlı ayrıntı, arşiv ayrıntısı ve eşit değerlendirme görünümü tarayıcıda görüntülenerek kontrol edildi.
+
+Bu revizyondaki gerçek çalışmalar ayrı kayıt klasörlerinde bulunur.
+
+- `sonuclar/sunum_calistirmalari/20261113T132652Z_a5268357` orijinal 250/83/42 çalışması.
+- `sonuclar/sunum_calistirmalari/20261113T132703Z_c72003bf` süre düzenlemesinden sonraki çalışma.
+
+Sunum sırası genel özet, 250 testin arşiv ayrıntısı ve yeni 250/83/42 çalışmasının iki iz görünümüdür.

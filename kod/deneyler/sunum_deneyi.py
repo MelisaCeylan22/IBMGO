@@ -264,47 +264,14 @@ def summarize(rows):
     return counts.join(metrics).reset_index()
 
 
-def result_figures(result,size):
-    frame=result['rows'];frame=frame[frame['size']==size]
-    fig,axes=plt.subplots(3,3,figsize=(14,10),layout='constrained')
-    colors=['#178c86','#5064b9','#c58238']
-    for ax,key,label in zip(axes.flat,METRICS,LABELS):
-        groups=[frame.loc[frame.method==m,key].dropna() for m in ['IBMGO','GA','Greedy']]
-        if not any(len(g) for g in groups):
-            ax.text(.5,.5,'Arşivde kayıt yok',ha='center',transform=ax.transAxes)
-        else:
-            means=[g.mean() for g in groups];errors=[g.std() if len(g)>1 else 0 for g in groups]
-            ax.bar(['IBMGO','GA','Greedy'],means,yerr=errors,color=colors,capsize=4)
-            ax.set_ylim(bottom=0)
-        ax.set_title(label);ax.grid(axis='y',alpha=.18);ax.set_axisbelow(True)
-    fig.suptitle(f"{result['source']} · {size} test · Ortalama ± örnek standart sapma\nAynı boyutta veri ve algoritma tekrarları birlikte özetlenir. Greedy her veri için bir kez.",fontsize=12)
-    return fig
+def result_figures(result, size):
+    from kod.raporlama.sunum_sonuclari import package_figure
+    return package_figure(result['rows'][result['rows']['size'] == size])
 
 
-def convergence_figures(result,key):
-    run=result['runs'][key];trace=run['trace']
-    if not trace: return None
-    fig,axes=plt.subplots(1,3,figsize=(15,4),layout='constrained')
-    for ax,method in zip(axes[:2],['IBMGO','GA']):
-        other=next(r for r in result['runs'].values() if r['size']==run['size'] and r['data_seed']==run['data_seed'] and r['algorithm_seed']==run['algorithm_seed'] and r['method']==method)
-        t=other['trace']
-        # İlk nokta, başlangıç popülasyonu tamamlandıktan sonraki en iyi puan.
-        ax.step(range(t['steps']+1),[t['initial_fitness']]+other['curve'],where='post',label=method)
-        ax.set_xlabel('İterasyon (0 başlangıç)' if method=='IBMGO' else 'Nesil (0 başlangıç)')
-        events=t['events']
-        shown=events
-        axes[2].step([e['evaluation'] for e in shown],[e['best'] for e in shown],where='post',label=method)
-        from matplotlib.ticker import MaxNLocator
-        ax.xaxis.set_major_locator(MaxNLocator(integer=True))
-        # Aynı veri ve boyutta diğer tohumların eğrileri silik çizilir.
-        for repeat in result['runs'].values():
-            if repeat['size']==run['size'] and repeat['data_seed']==run['data_seed'] and repeat['method']==method and repeat['algorithm_seed']!=run['algorithm_seed']:
-                rt=repeat['trace'];ax.plot(range(rt['steps']+1),[rt['initial_fitness']]+repeat['curve'],alpha=.18,color='gray')
-    for ax in axes:
-        ax.set_ylabel('O ana kadar en iyi fitness ↓');ax.grid(alpha=.2);ax.legend()
-    axes[2].set_xlabel('Kümülatif gerçek amaç fonksiyonu çağrısı')
-    fig.suptitle(f"Yeni çalıştırma · {run['size']} test · veri {run['data_seed']} · algoritma {run['algorithm_seed']}\nAynı veri ve boyut karşılaştırılır. Yeniden puanlama benzersiz aday sayısı değildir.",fontsize=11)
-    return fig
+def convergence_figures(result, key, view='iteration'):
+    from kod.raporlama.sunum_sonuclari import convergence_figure
+    return convergence_figure(result, key, view)
 
 
 def selected_table(result,key,limit=20):

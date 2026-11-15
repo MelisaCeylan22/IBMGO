@@ -1,0 +1,42 @@
+{
+  "status": "complete",
+  "total": 180,
+  "completed": 180,
+  "compatible": true,
+  "created_utc": "2026-11-13T17:16:21.122170+00:00",
+  "sources": [
+    {
+      "folder": "sonuclar\\ek_iterasyon_2026-11-13",
+      "fingerprint": "527dad5d946bb4f94bafdb5d4b0e597f57616954483b5490482b919ce9f85662",
+      "runs": 90
+    },
+    {
+      "folder": "sonuclar\\ek_iterasyon_1000_5000_2026-11-13",
+      "fingerprint": "ee760d5294c8c99b2ea9857d1225ac15797cc1c57e9bea265ed7e989acfa02b3",
+      "runs": 90
+    }
+  ],
+  "computation_code_hashes": {
+    "kod\\algoritmalar\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "kod\\algoritmalar\\baselines.py": "5f40c84f00ba59447d0d12b5f3a7d94c5dbe53834dc721ba06eb61206e26fb8b",
+    "kod\\algoritmalar\\bmgo.py": "bf4d11f5fdbbfc2bdcdb1d0f6320a3288c725488ecf053d4622da7b7cea663eb",
+    "kod\\algoritmalar\\fitness.py": "399fe46a1f0462a600dea347d85226ff821b3aea0fda54335b6f8f9c5fc992d1",
+    "kod\\algoritmalar\\izleme.py": "8d780480d359fb7bc1fc2e48a91286f8e9deb86c457b903971635f9774c9b365",
+    "kod\\veri\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "kod\\veri\\data_generator.py": "26ec6cf7b4ebfe91392fb01761534a19db3691084454048c401c642ac91a0d5e",
+    "kod\\veri\\kapsam_duyarliligi.py": "cedb5fd529f64e123dca5a37a6748ca16d045564bde08858546fff6e8bc1b865",
+    "kod\\veri\\telecom_data_generator.py": "aef641be0553be11f4a696f40ed27487158066738e26be91263fe50bfeaf308f",
+    "kod\\deneyler\\ek_deneyler.py": "c7b683725fb7447cb5161ccda393751835cc4632f4a5dbf0a60dc8e6f8bb4876",
+    "kod\\deneyler\\sunum_deneyi.py": "9ce5692a85ac87207ba1b1974d84b8a3758744381cb15bed3709bb98369e852e"
+  },
+  "checks": [
+    "Hesaplama dosyalarının SHA-256 özetleri aynı",
+    "Python, NumPy ve pandas sürümleri aynı",
+    "Ağırlıklar, kapsam eşiği, popülasyon ve yerel arama aynı",
+    "Her büyüklükte aynı boyuta duyarlı politika doğrulandı",
+    "Üretilen ve kayıtlı girdilerin kimlikleri eşleşti",
+    "CSV satırları, bireysel kayıtlar ve gerçek izler doğrulandı",
+    "Kayıtlı seçimlerden amaç puanı, süre ve kısıtlar yeniden doğrulandı",
+    "Önceki ölçek deneyinin kayıtları yeni koşum olarak kullanılmadı"
+  ]
+}

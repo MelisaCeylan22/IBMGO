@@ -1,0 +1,1063 @@
+{
+  "case": {
+    "case_id": "50_83_IBMGO_42_2",
+    "size": 50,
+    "data_seed": 83,
+    "algorithm_seed": 42,
+    "method": "IBMGO",
+    "iterations": 2
+  },
+  "record": {
+    "kosum": "50_83_IBMGO_42_2",
+    "test_sayisi": 50,
+    "veri_seed": 83,
+    "algoritma_seed": 42,
+    "yontem": "IBMGO",
+    "iterasyon": 2,
+    "baslangic_fitness": 0.5292850773669028,
+    "fitness": 0.5277797010228167,
+    "secilen_test": 26,
+    "tam_paket_sn": 1860.0,
+    "secili_paket_sn": 1056.0,
+    "sure_tasarrufu_yuzde": 43.225806451612904,
+    "kritik_kapsam_yuzde": 100.0,
+    "genel_kapsam_yuzde": 95.65217391304348,
+    "on_kosul_ihlali": 0,
+    "arama_sn": 0.06922549998853356,
+    "planlanan_degerlendirme": 132,
+    "gercek_degerlendirme": 132,
+    "ilk_en_iyi_adim": 1,
+    "ilk_en_iyi_degerlendirme": 37,
+    "gecerli": true,
+    "girdi_kimligi": "cf7d0454c50c256ab5b2c40b2a65a5759bb6a1e4d0c695448619a7c6a0a8d20e",
+    "deney_kimligi": "fce62030ba239638eef17b68772002ab09e75e92e06c863d2ee5529fdfcda4f8"
+  },
+  "trace": {
+    "events": [
+      {
+        "evaluation": 1,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5319391555205875,
+        "best": 0.5319391555205875
+      },
+      {
+        "evaluation": 2,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.53258431681091,
+        "best": 0.5319391555205875
+      },
+      {
+        "evaluation": 3,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5369588250721217,
+        "best": 0.5319391555205875
+      },
+      {
+        "evaluation": 4,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5343781799108314,
+        "best": 0.5319391555205875
+      },
+      {
+        "evaluation": 5,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5312939942302649,
+        "best": 0.5312939942302649
+      },
+      {
+        "evaluation": 6,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5323692630474692,
+        "best": 0.5312939942302649
+      },
+      {
+        "evaluation": 7,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5292850773669028,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 8,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5323692630474692,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 9,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5322958300550747,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 10,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5295001311303436,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 11,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5359517440335694,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 12,
+        "step": 0,
+        "phase": "initial",
+        "score": 0.5351649619722004,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 13,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5319391555205875,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 14,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5319391555205875,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 15,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5319391555205875,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 16,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5319391555205875,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 17,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5343781799108314,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 18,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5308638867033831,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 19,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.53258431681091,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 20,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5308638867033831,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 21,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5369588250721217,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 22,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5369588250721217,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 23,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5369588250721217,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 24,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5369588250721217,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 25,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5343781799108314,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 26,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.53258431681091,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 27,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5343781799108314,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 28,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5343781799108314,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 29,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5297151848937844,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 30,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5312939942302649,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 31,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5312939942302649,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 32,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5312939942302649,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 33,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5339480723839497,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 34,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5323692630474692,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 35,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5323692630474692,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 36,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5307904537109888,
+        "best": 0.5292850773669028
+      },
+      {
+        "evaluation": 37,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 38,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5328728035667454,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 39,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5292850773669028,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 40,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5290700236034619,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 41,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5341631261473906,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 42,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5312939942302649,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 43,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5305753999475479,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 44,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5323692630474692,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 45,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5307904537109888,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 46,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5307904537109888,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 47,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5340896931549961,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 48,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5322958300550747,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 49,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5295001311303436,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 50,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5295001311303436,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 51,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5295001311303436,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 52,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5295001311303436,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 53,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5359517440335694,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 54,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5357366902701285,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 55,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5359517440335694,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 56,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5350915289798059,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 57,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5333710988722791,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 58,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5351649619722004,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 59,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5338746393915552,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 60,
+        "step": 1,
+        "phase": "mgo",
+        "score": 0.5305753999475479,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 61,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 62,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 63,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 64,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 65,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 66,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 67,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 68,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 69,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 70,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 71,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 72,
+        "step": 1,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 73,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 74,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 75,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 76,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.529573564122738,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 77,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 78,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 79,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 80,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 81,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5279947547862576,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 82,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.529573564122738,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 83,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 84,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 85,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 86,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 87,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 88,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 89,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 90,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 91,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 92,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 93,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 94,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 95,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 96,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 97,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 98,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 99,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 100,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 101,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 102,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 103,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 104,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 105,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 106,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 107,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 108,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 109,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 110,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 111,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 112,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 113,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 114,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 115,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.529573564122738,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 116,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 117,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 118,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 119,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 120,
+        "step": 2,
+        "phase": "mgo",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 121,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 122,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 123,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 124,
+        "step": 2,
+        "phase": "local",
+        "score": 0.529573564122738,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 125,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 126,
+        "step": 2,
+        "phase": "local",
+        "score": 0.529573564122738,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 127,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 128,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 129,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 130,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 131,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      },
+      {
+        "evaluation": 132,
+        "step": 2,
+        "phase": "local",
+        "score": 0.5277797010228167,
+        "best": 0.5277797010228167
+      }
+    ],
+    "initial_fitness": 0.5292850773669028,
+    "final_fitness": 0.5277797010228167,
+    "steps": 2,
+    "evaluations": 132,
+    "first_final_step": 1,
+    "first_final_evaluation": 37,
+    "last_improvement_step": 1,
+    "last_improvement_evaluation": 37,
+    "last_improvement_phase": "mgo"
+  },
+  "curve": [
+    0.5277797010228167,
+    0.5277797010228167
+  ],
+  "selection": [
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1
+  ],
+  "settings": {
+    "mode": "Hızlı canlı demo",
+    "sizes": [
+      50
+    ],
+    "data_seeds": [
+      83
+    ],
+    "algorithm_seeds": [
+      42
+    ],
+    "min_coverage": 0.9,
+    "w_time": 0.4,
+    "w_count": 0.4,
+    "w_redundancy": 0.2,
+    "w_rare": 0.0,
+    "population": 12,
+    "iterations": 2,
+    "local_trials": 12,
+    "adaptive_policy": true,
+    "advanced": {}
+  },
+  "resolved_options": {
+    "adaptive_binary": true,
+    "diverse_initialization": true,
+    "local_search_trials": 12
+  },
+  "budget": {
+    "ibmgo": 132,
+    "ga": 132,
+    "generations": 10,
+    "difference": 0
+  },
+  "fingerprint": "fce62030ba239638eef17b68772002ab09e75e92e06c863d2ee5529fdfcda4f8",
+  "completed_utc": "2026-11-13T15:58:23.955892+00:00"
+}

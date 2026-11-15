@@ -102,8 +102,8 @@ class PresentationTests(unittest.TestCase):
             self.assertEqual(manifest['status'],'complete')
             self.assertEqual(len(json.loads((saved/'izler_ve_secimler.json').read_text(encoding='utf8'))),3)
             fig=result_figures(r,50)
-            self.assertEqual(len(fig.axes),9)
-            self.assertAlmostEqual(fig.axes[0].patches[0].get_height(),r['rows'].iloc[0].fitness)
+            self.assertEqual(len(fig.axes),2)
+            self.assertAlmostEqual(fig.axes[0].patches[0].get_height(),r['rows'].iloc[0].secili_paket_sn / 60)
             key=next(k for k in r['runs'] if 'IBMGO' in k)
             fig2=convergence_figures(r,key)
             self.assertAlmostEqual(fig2.axes[0].lines[0].get_ydata()[0],r['runs'][key]['trace']['initial_fitness'])
@@ -126,11 +126,111 @@ class PresentationTests(unittest.TestCase):
         self.assertEqual(panel.size_filter.value,50)
         with patch.object(panel.experiment,'run') as run:
             panel.size_filter.value=100
-            panel.raw_toggle.value=True
+            panel.method_filter.value='GA'
+            panel.trace_view.value='evaluations'
             run.assert_not_called()
         panel.controls['w_time'].value=.6
         self.assertTrue(panel.inputs_dirty)
-        self.assertIn('Güncel değil',panel.status.value)
+        self.assertIn('Sonuçlar önceki ayarlara ait',panel.status.value)
+
+
+class ResultScreenTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from kod.raporlama import sunum_sonuclari
+        cls.report = sunum_sonuclari
+        cls.archive = PresentationExperiment().load_archive()
+
+    def test_archive_uses_saved_ratios_and_has_no_trace_axes(self):
+        rows = self.archive['rows'].query('size == 250')
+        fig = self.report.gain_figure(rows, 'IBMGO')
+        self.assertEqual(fig.axes[0].patches[0].get_width(), 100)
+        self.assertAlmostEqual(fig.axes[0].patches[1].get_width(),
+                               100 - rows.query("method == 'IBMGO'").tasarruf_yuzde.mean())
+        self.assertIn('oranı', fig.axes[0].get_title())
+        self.assertIsNone(self.report.convergence_figure(self.archive, None))
+        self.assertIn('Mutlak dakika', self.report.gain_note(rows, 'IBMGO'))
+        plt = __import__('matplotlib.pyplot', fromlist=['close'])
+        plt.close('all')
+
+    def test_compact_table_and_numeric_constraint_checks(self):
+        rows = self.archive['rows'].query('size == 250').copy()
+        html = self.report.comparison_html(self.archive, rows)
+        self.assertEqual(html.count('Sağlandı'), 3)
+        self.assertIn('Ortalama ±', html)
+        self.assertIn('IBMGO 30 koşum', html)
+        self.assertIn('Greedy 3 koşum', html)
+        self.assertIn('Kayıt yok', html)
+        rows.loc[rows.method == 'IBMGO', 'on_kosul_ihlali'] = 1
+        rows.loc[rows.method == 'GA', 'genel_kapsam_yuzde'] = np.nan
+        html = self.report.comparison_html(self.archive, rows)
+        self.assertEqual(html.count('Sağlandı'), 1)
+        self.assertEqual(html.count('Kontrol edilmeli'), 2)
+
+    def test_highlight_tolerance_uses_visible_precision(self):
+        mask = self.report._best_mask([.123441, .123449, .4])
+        self.assertEqual(mask.tolist(), [True, True, False])
+        self.assertEqual(self.report._best_mask([.1, .1 + 1e-12, .1]).tolist(), [False] * 3)
+        self.assertNotEqual(self.report._value(.00000012, seconds=True), '0')
+
+    def test_overview_is_categorical_and_separates_sizes(self):
+        html = self.report.overview_html(self.archive)
+        self.assertIn('150 koşum (15 veri kümesi × 10 tekrar)', html)
+        self.assertIn('15 koşum (15 veri kümesi × 1 tekrar)', html)
+        fig = self.report.overview_figure(self.archive)
+        self.assertEqual([t.get_text() for t in fig.axes[0].get_xticklabels()], ['50', '100', '250', '500', '1000'])
+        self.assertEqual(fig.axes[0].get_ylim()[0], 0)
+        __import__('matplotlib.pyplot', fromlist=['close']).close('all')
+
+    def test_live_multiple_repeats_and_closed_details(self):
+        from kod.raporlama.sunum_paneli import PresentationPanel
+        rows = self.archive['rows'].query('size == 250 and data_seed == 83').copy()
+        rows = rows[rows.algorithm_seed.isin([42, 43]) | (rows.method == 'Greedy')]
+        result = dict(self.archive, rows=rows, source='Yeni çalıştırma')
+        summary = self.report.experiment_summary(result, rows)
+        self.assertIn('IBMGO 2 tekrar/veri', summary)
+        self.assertIn('GA 2 tekrar/veri', summary)
+        self.assertIn('Greedy 1 tekrar/veri', summary)
+        html = self.report.comparison_html(result, rows)
+        self.assertIn('Ortalama ±', html)
+        panel = PresentationPanel()
+        panel.archive()
+        self.assertEqual(panel.data_filter.value, 83)
+        self.assertIsNone(panel.settings_view.selected_index)
+        self.assertIsNone(panel.editor.selected_index)
+        self.assertIsNone(panel.results.children[-1].selected_index)
+        previous_image = panel.gain_area.children[0]
+        with patch.object(panel.experiment, 'run') as optimize:
+            panel.method_filter.value = 'GA'
+            panel.data_filter.value = 97
+            panel.size_filter.value = 250
+            optimize.assert_not_called()
+        self.assertIsNone(previous_image.comm)
+        self.assertIsNotNone(panel.method_filter.comm)
+        self.assertEqual(len(panel.results.children), 12)
+
+    def test_initial_plateau_and_first_access_come_from_real_trace(self):
+        run = dict(size=250, data_seed=83, algorithm_seed=42, method='IBMGO',
+                   curve=[.7, .5, .5], trace=dict(initial_fitness=.8, final_fitness=.5, steps=3))
+        result = dict(runs={'run': run})
+        self.assertIn('2. iterasyonda', self.report.convergence_note(result, 'run'))
+        fig = self.report.convergence_figure(result, 'run')
+        np.testing.assert_allclose(fig.axes[0].lines[0].get_ydata(), [.8, .7, .5, .5])
+        np.testing.assert_allclose(fig.axes[0].collections[0].get_offsets()[0], [2, .5])
+        run['trace']['initial_fitness'] = .5
+        run['curve'] = [.5, .5, .5]
+        self.assertIn('başlangıçtan sonra daha iyi puan bulunmadı', self.report.convergence_note(result, 'run'))
+        fig = self.report.convergence_figure(result, 'run')
+        self.assertEqual(len(set(fig.axes[0].lines[0].get_ydata())), 1)
+        __import__('matplotlib.pyplot', fromlist=['close']).close('all')
+
+    def test_single_run_has_one_context_and_integer_count(self):
+        rows = self.archive['rows'].query('size == 250 and data_seed == 83').copy()
+        rows = rows[(rows.algorithm_seed == 42) | (rows.method == 'Greedy')]
+        self.assertEqual(self.report.experiment_summary(self.archive, rows).count('Tek koşum'), 1)
+        html = self.report.comparison_html(self.archive, rows)
+        self.assertNotIn('±', html)
+        self.assertNotIn('tek koşum', html)
 
 
 if __name__=='__main__':unittest.main()

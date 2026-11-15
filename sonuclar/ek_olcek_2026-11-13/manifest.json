@@ -1,0 +1,465 @@
+{
+  "fingerprint": "b288445000bbe2774f8aefaf2346719ab0b45a428c46db213b170a130c6949ca",
+  "identity": {
+    "plan": {
+      "kind": "scale",
+      "smoke": false,
+      "sizes": [
+        2000,
+        5000
+      ],
+      "data_seeds": [
+        83,
+        97,
+        109
+      ],
+      "algorithm_seeds": [
+        42,
+        43,
+        44
+      ],
+      "iterations": [
+        20
+      ],
+      "methods": [
+        "IBMGO",
+        "GA",
+        "Greedy"
+      ],
+      "population": 12,
+      "local_trials": 12,
+      "cases": [
+        {
+          "case_id": "2000_83_IBMGO_42_20",
+          "size": 2000,
+          "data_seed": 83,
+          "algorithm_seed": 42,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_83_IBMGO_43_20",
+          "size": 2000,
+          "data_seed": 83,
+          "algorithm_seed": 43,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_83_IBMGO_44_20",
+          "size": 2000,
+          "data_seed": 83,
+          "algorithm_seed": 44,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_83_GA_42_20",
+          "size": 2000,
+          "data_seed": 83,
+          "algorithm_seed": 42,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_83_GA_43_20",
+          "size": 2000,
+          "data_seed": 83,
+          "algorithm_seed": 43,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_83_GA_44_20",
+          "size": 2000,
+          "data_seed": 83,
+          "algorithm_seed": 44,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_83_Greedy_None_20",
+          "size": 2000,
+          "data_seed": 83,
+          "algorithm_seed": null,
+          "method": "Greedy",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_97_IBMGO_42_20",
+          "size": 2000,
+          "data_seed": 97,
+          "algorithm_seed": 42,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_97_IBMGO_43_20",
+          "size": 2000,
+          "data_seed": 97,
+          "algorithm_seed": 43,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_97_IBMGO_44_20",
+          "size": 2000,
+          "data_seed": 97,
+          "algorithm_seed": 44,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_97_GA_42_20",
+          "size": 2000,
+          "data_seed": 97,
+          "algorithm_seed": 42,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_97_GA_43_20",
+          "size": 2000,
+          "data_seed": 97,
+          "algorithm_seed": 43,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_97_GA_44_20",
+          "size": 2000,
+          "data_seed": 97,
+          "algorithm_seed": 44,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_97_Greedy_None_20",
+          "size": 2000,
+          "data_seed": 97,
+          "algorithm_seed": null,
+          "method": "Greedy",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_109_IBMGO_42_20",
+          "size": 2000,
+          "data_seed": 109,
+          "algorithm_seed": 42,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_109_IBMGO_43_20",
+          "size": 2000,
+          "data_seed": 109,
+          "algorithm_seed": 43,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_109_IBMGO_44_20",
+          "size": 2000,
+          "data_seed": 109,
+          "algorithm_seed": 44,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_109_GA_42_20",
+          "size": 2000,
+          "data_seed": 109,
+          "algorithm_seed": 42,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_109_GA_43_20",
+          "size": 2000,
+          "data_seed": 109,
+          "algorithm_seed": 43,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_109_GA_44_20",
+          "size": 2000,
+          "data_seed": 109,
+          "algorithm_seed": 44,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "2000_109_Greedy_None_20",
+          "size": 2000,
+          "data_seed": 109,
+          "algorithm_seed": null,
+          "method": "Greedy",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_83_IBMGO_42_20",
+          "size": 5000,
+          "data_seed": 83,
+          "algorithm_seed": 42,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_83_IBMGO_43_20",
+          "size": 5000,
+          "data_seed": 83,
+          "algorithm_seed": 43,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_83_IBMGO_44_20",
+          "size": 5000,
+          "data_seed": 83,
+          "algorithm_seed": 44,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_83_GA_42_20",
+          "size": 5000,
+          "data_seed": 83,
+          "algorithm_seed": 42,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_83_GA_43_20",
+          "size": 5000,
+          "data_seed": 83,
+          "algorithm_seed": 43,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_83_GA_44_20",
+          "size": 5000,
+          "data_seed": 83,
+          "algorithm_seed": 44,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_83_Greedy_None_20",
+          "size": 5000,
+          "data_seed": 83,
+          "algorithm_seed": null,
+          "method": "Greedy",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_97_IBMGO_42_20",
+          "size": 5000,
+          "data_seed": 97,
+          "algorithm_seed": 42,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_97_IBMGO_43_20",
+          "size": 5000,
+          "data_seed": 97,
+          "algorithm_seed": 43,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_97_IBMGO_44_20",
+          "size": 5000,
+          "data_seed": 97,
+          "algorithm_seed": 44,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_97_GA_42_20",
+          "size": 5000,
+          "data_seed": 97,
+          "algorithm_seed": 42,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_97_GA_43_20",
+          "size": 5000,
+          "data_seed": 97,
+          "algorithm_seed": 43,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_97_GA_44_20",
+          "size": 5000,
+          "data_seed": 97,
+          "algorithm_seed": 44,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_97_Greedy_None_20",
+          "size": 5000,
+          "data_seed": 97,
+          "algorithm_seed": null,
+          "method": "Greedy",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_109_IBMGO_42_20",
+          "size": 5000,
+          "data_seed": 109,
+          "algorithm_seed": 42,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_109_IBMGO_43_20",
+          "size": 5000,
+          "data_seed": 109,
+          "algorithm_seed": 43,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_109_IBMGO_44_20",
+          "size": 5000,
+          "data_seed": 109,
+          "algorithm_seed": 44,
+          "method": "IBMGO",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_109_GA_42_20",
+          "size": 5000,
+          "data_seed": 109,
+          "algorithm_seed": 42,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_109_GA_43_20",
+          "size": 5000,
+          "data_seed": 109,
+          "algorithm_seed": 43,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_109_GA_44_20",
+          "size": 5000,
+          "data_seed": 109,
+          "algorithm_seed": 44,
+          "method": "GA",
+          "iterations": 20
+        },
+        {
+          "case_id": "5000_109_Greedy_None_20",
+          "size": 5000,
+          "data_seed": 109,
+          "algorithm_seed": null,
+          "method": "Greedy",
+          "iterations": 20
+        }
+      ]
+    },
+    "code_hashes": {
+      "kod\\algoritmalar\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kod\\algoritmalar\\baselines.py": "5f40c84f00ba59447d0d12b5f3a7d94c5dbe53834dc721ba06eb61206e26fb8b",
+      "kod\\algoritmalar\\bmgo.py": "bf4d11f5fdbbfc2bdcdb1d0f6320a3288c725488ecf053d4622da7b7cea663eb",
+      "kod\\algoritmalar\\fitness.py": "399fe46a1f0462a600dea347d85226ff821b3aea0fda54335b6f8f9c5fc992d1",
+      "kod\\algoritmalar\\izleme.py": "8d780480d359fb7bc1fc2e48a91286f8e9deb86c457b903971635f9774c9b365",
+      "kod\\veri\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kod\\veri\\data_generator.py": "26ec6cf7b4ebfe91392fb01761534a19db3691084454048c401c642ac91a0d5e",
+      "kod\\veri\\kapsam_duyarliligi.py": "cedb5fd529f64e123dca5a37a6748ca16d045564bde08858546fff6e8bc1b865",
+      "kod\\veri\\telecom_data_generator.py": "aef641be0553be11f4a696f40ed27487158066738e26be91263fe50bfeaf308f",
+      "kod\\deneyler\\ek_deneyler.py": "c7b683725fb7447cb5161ccda393751835cc4632f4a5dbf0a60dc8e6f8bb4876",
+      "kod\\deneyler\\sunum_deneyi.py": "9ce5692a85ac87207ba1b1974d84b8a3758744381cb15bed3709bb98369e852e"
+    },
+    "python": "3.13.2",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "inputs": {
+      "2000_83": "b3bfce234aee2c63337bf0dc322efc9d722d9473b669378bc9b8c7f493601e89",
+      "2000_97": "b38c0a26dccb67b707f791a67c014c42001651884fd95b409c93d8e686000c1d",
+      "2000_109": "e71df1bedc95f4bd7437340f68f119c8ac0195d5f26aecede469e62260c0e6f9",
+      "5000_83": "0d04287a38ba67132a2f6291f1de93fda6a2a13374554ea6bb05dcf09834ece3",
+      "5000_97": "90db19b67a7f0626c0df50982bd4c60fcb486a5738b439b3c2dffa564513c0ef",
+      "5000_109": "dee0146d413b0be0ce38367806c4fbf4ebe2f9d7727746571a7cece8084e6699"
+    }
+  },
+  "version": {
+    "hashes": {
+      "kod\\algoritmalar\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kod\\algoritmalar\\baselines.py": "5f40c84f00ba59447d0d12b5f3a7d94c5dbe53834dc721ba06eb61206e26fb8b",
+      "kod\\algoritmalar\\bmgo.py": "bf4d11f5fdbbfc2bdcdb1d0f6320a3288c725488ecf053d4622da7b7cea663eb",
+      "kod\\algoritmalar\\fitness.py": "399fe46a1f0462a600dea347d85226ff821b3aea0fda54335b6f8f9c5fc992d1",
+      "kod\\algoritmalar\\izleme.py": "8d780480d359fb7bc1fc2e48a91286f8e9deb86c457b903971635f9774c9b365",
+      "kod\\veri\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kod\\veri\\data_generator.py": "26ec6cf7b4ebfe91392fb01761534a19db3691084454048c401c642ac91a0d5e",
+      "kod\\veri\\kapsam_duyarliligi.py": "cedb5fd529f64e123dca5a37a6748ca16d045564bde08858546fff6e8bc1b865",
+      "kod\\veri\\telecom_data_generator.py": "aef641be0553be11f4a696f40ed27487158066738e26be91263fe50bfeaf308f",
+      "kod\\deneyler\\ek_deneyler.py": "c7b683725fb7447cb5161ccda393751835cc4632f4a5dbf0a60dc8e6f8bb4876",
+      "kod\\deneyler\\sunum_deneyi.py": "9ce5692a85ac87207ba1b1974d84b8a3758744381cb15bed3709bb98369e852e"
+    },
+    "git_commit": "d4b1c8ecb987e733ccc6a175b776cce4305713b8",
+    "working_tree": [
+      " M IBMGO_Sunum.ipynb",
+      " M SUNUM_DOGRULAMA.md",
+      " M kod/deneyler/__pycache__/sunum_deneyi.cpython-313.pyc",
+      " M kod/deneyler/sunum_deneyi.py",
+      " M kod/raporlama/__pycache__/sunum_paneli.cpython-313.pyc",
+      " M kod/raporlama/sunum_paneli.py",
+      " M kod/testler/test_sunum.py",
+      "?? IBMGO_Ek_Deneyler.ipynb",
+      "?? kod/deneyler/ek_deneyler.py",
+      "?? kod/raporlama/__pycache__/sunum_sonuclari.cpython-313.pyc",
+      "?? kod/raporlama/ek_deney_raporu.py",
+      "?? kod/raporlama/sunum_sonuclari.py",
+      "?? kod/testler/test_ek_deneyler.py",
+      "?? sonuclar/ek_dogrulama_iterasyon_2026-11-13/",
+      "?? sonuclar/ek_dogrulama_olcek_2026-11-13/",
+      "?? sonuclar/ek_iterasyon_2026-11-13/",
+      "?? sonuclar/ek_olcek_2026-11-13/",
+      "?? sonuclar/sunum_calistirmalari/20261113T125724Z_0906c221/",
+      "?? sonuclar/sunum_calistirmalari/20261113T132652Z_a5268357/",
+      "?? sonuclar/sunum_calistirmalari/20261113T132703Z_c72003bf/"
+    ],
+    "python": "3.13.2",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "protected_files": {
+    "IBMGO_Sunum.ipynb": "f8433004eb91ac496f6b8fc0a47be4894b310693b6c5c63434f741d66354641c",
+    "sonuclar\\dayaniklilik_109\\ablasyon_veri109.csv": "2b72de1244b1430c910167433556f5db9bed1084fdb2aa87630c7dd15eee949a",
+    "sonuclar\\dayaniklilik_109\\ablasyon_veri109.png": "6fad3175a632fc55786ed727439bbfec488ad6613ebf25045d62d200e997a214",
+    "sonuclar\\dayaniklilik_83\\ablasyon_veri83.csv": "06d9ae41ff5efd35f94b6fd83b899cdc83778a35704e2389f2bd12c6c28008c2",
+    "sonuclar\\dayaniklilik_83\\ablasyon_veri83.png": "83d07f3cb6d759088063acba6a2fe98890725837de1efa9316acc6510780e9bf",
+    "sonuclar\\dayaniklilik_97\\ablasyon_veri97.csv": "3a0994cdba01402750228e7ea23d06624b4110658fa4919d84c52fca44c10320",
+    "sonuclar\\dayaniklilik_97\\ablasyon_veri97.png": "7ccb0b126de9014c2a7f32ce6d99f7b5cb1935f1a909c16b21da5f3f750cff06",
+    "sonuclar\\dayaniklilik_analizi\\01_ana_karsilastirma.png": "283c624d2994d5e75e01553508befc5fae6aca9d078341cd0ddf22d0fc27badc",
+    "sonuclar\\dayaniklilik_analizi\\02_eslesmis_kazanma.png": "96eb698a45ff291b586e77bdada2282ece96ab5dddeba1a9d4e03fe21ae8ca55",
+    "sonuclar\\dayaniklilik_analizi\\03_veri_kumesi_duyarliligi.png": "baf907c79a600eedf5224dd7a0991ccaa86ebe03592ace03f60d82d6c02e1630",
+    "sonuclar\\dayaniklilik_analizi\\04_excel_sunum_onizleme.png": "76cb5d1823848e31f5f42c679760f89f010701e39ea603b15b3c8d5a5fea394d",
+    "sonuclar\\dayaniklilik_analizi\\05_sure_karsilastirma.png": "f3e2fe3cbfcd58fb54f06111d28645faf10ead208fa9a1949e18c2086b37ce9a",
+    "sonuclar\\dayaniklilik_analizi\\06_IBMGO_once_sonra_sure_grafigi.png": "daf0c1185aa1d82f848bead67cf5b4dd74b03e1616be2e6af5a4ba6d5d6e493b",
+    "sonuclar\\dayaniklilik_analizi\\07_IBMGO_sure_tasarrufu_tablosu.png": "f4b81e7adcaf2b0e8325085462802a0961065ed3c7d34bda0c34e66cae5760e4",
+    "sonuclar\\dayaniklilik_analizi\\algoritma_ozet.csv": "eec8e397d7d1f863e0d50a3970e23a7e04002a6c9c76875d8aa4559d67856496",
+    "sonuclar\\dayaniklilik_analizi\\analiz_verileri.json": "367d22042568ce74ee43bfc5e9f1e960534add05f9a92aae8ce0e1140e97eda2",
+    "sonuclar\\dayaniklilik_analizi\\DAYANIKLILIK_RAPORU.md": "d46bbcae2cba9dc483e6ced57195f57a265f4a3aa0c709f4eff4ea88a5ab02de",
+    "sonuclar\\dayaniklilik_analizi\\eslesmis_ham_farklar.csv": "df40a0f0cc3fa4f172131795e07249515b1819abaa36e143c10424535c4b1a4d",
+    "sonuclar\\dayaniklilik_analizi\\eslesmis_karsilastirma.csv": "4d5be748764fa6fa0ef00334a47f5739c03a8b2a49d204902a08f78c74088156",
+    "sonuclar\\dayaniklilik_analizi\\IBMGO_Dayaniklilik_Sunum_Tablolari.xlsx": "419d276b1286cfef4937c5080f4f8641ccd536420fad904bc886eb6049af4edd"
+  },
+  "created_utc": "2026-11-13T14:18:53.993067+00:00",
+  "status": "complete",
+  "completed": 42,
+  "total": 42,
+  "updated_utc": "2026-11-13T14:30:24.578995+00:00",
+  "session_elapsed_seconds": 693.658156599995
+}

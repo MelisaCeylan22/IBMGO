@@ -1,0 +1,140 @@
+{
+  "case": {
+    "case_id": "50_83_Greedy_None_2",
+    "size": 50,
+    "data_seed": 83,
+    "algorithm_seed": null,
+    "method": "Greedy",
+    "iterations": 2
+  },
+  "record": {
+    "kosum": "50_83_Greedy_None_2",
+    "test_sayisi": 50,
+    "veri_seed": 83,
+    "algoritma_seed": null,
+    "yontem": "Greedy",
+    "iterasyon": 2,
+    "baslangic_fitness": 0.5292850773669028,
+    "fitness": 0.5292850773669028,
+    "secilen_test": 26,
+    "tam_paket_sn": 1860.0,
+    "secili_paket_sn": 1063.0,
+    "sure_tasarrufu_yuzde": 42.84946236559139,
+    "kritik_kapsam_yuzde": 100.0,
+    "genel_kapsam_yuzde": 95.65217391304348,
+    "on_kosul_ihlali": 0,
+    "arama_sn": 0.005577200005063787,
+    "planlanan_degerlendirme": 1,
+    "gercek_degerlendirme": 1,
+    "ilk_en_iyi_adim": 0,
+    "ilk_en_iyi_degerlendirme": 1,
+    "gecerli": true,
+    "girdi_kimligi": "cf7d0454c50c256ab5b2c40b2a65a5759bb6a1e4d0c695448619a7c6a0a8d20e",
+    "deney_kimligi": "26380555be4344dbbb2db10878281123e4cd3198f52a8866572aac60f9935c44"
+  },
+  "trace": {
+    "events": [
+      {
+        "evaluation": 1,
+        "step": 0,
+        "phase": "greedy",
+        "score": 0.5292850773669028,
+        "best": 0.5292850773669028
+      }
+    ],
+    "initial_fitness": 0.5292850773669028,
+    "final_fitness": 0.5292850773669028,
+    "steps": 0,
+    "evaluations": 1,
+    "first_final_step": 0,
+    "first_final_evaluation": 1
+  },
+  "curve": [],
+  "selection": [
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1
+  ],
+  "settings": {
+    "mode": "Hızlı canlı demo",
+    "sizes": [
+      50
+    ],
+    "data_seeds": [
+      83
+    ],
+    "algorithm_seeds": [
+      42
+    ],
+    "min_coverage": 0.9,
+    "w_time": 0.4,
+    "w_count": 0.4,
+    "w_redundancy": 0.2,
+    "w_rare": 0.0,
+    "population": 12,
+    "iterations": 2,
+    "local_trials": 12,
+    "adaptive_policy": true,
+    "advanced": {}
+  },
+  "resolved_options": {
+    "adaptive_binary": true,
+    "diverse_initialization": true,
+    "local_search_trials": 12
+  },
+  "budget": {
+    "ibmgo": 132,
+    "ga": 132,
+    "generations": 10,
+    "difference": 0
+  },
+  "fingerprint": "26380555be4344dbbb2db10878281123e4cd3198f52a8866572aac60f9935c44",
+  "completed_utc": "2026-11-13T14:07:54.133724+00:00"
+}
