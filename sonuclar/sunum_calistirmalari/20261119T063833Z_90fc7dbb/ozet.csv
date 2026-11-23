@@ -1,0 +1,4 @@
+﻿size,method,kosum_sayisi,veri_kumesi,algoritma_tohumu,fitness_mean,fitness_std,tasarruf_yuzde_mean,tasarruf_yuzde_std,tam_paket_sn_mean,tam_paket_sn_std,secili_paket_sn_mean,secili_paket_sn_std,secilen_test_mean,secilen_test_std,arama_sn_mean,arama_sn_std,kritik_kapsam_yuzde_mean,kritik_kapsam_yuzde_std,genel_kapsam_yuzde_mean,genel_kapsam_yuzde_std,on_kosul_ihlali_mean,on_kosul_ihlali_std
+250,IBMGO,1,1,1,0.3031070728183005,,73.24788932967145,,9831.0,,2630.0,,64.0,,3.410178599995561,,100.0,,90.65420560747664,,0.0,
+250,GA,1,1,1,0.3135286434245238,,72.95290407893398,,9831.0,,2659.0,,66.0,,2.449103399994783,,100.0,,90.18691588785047,,0.0,
+250,Greedy,1,1,0,0.32312960169000754,,72.35276167226121,,9831.0,,2718.0,,68.0,,0.008615899947471917,,100.0,,90.18691588785047,,0.0,

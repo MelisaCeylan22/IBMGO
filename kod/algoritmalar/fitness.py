@@ -105,7 +105,7 @@ def get_suite_metrics(
         "time_ratio": float(np.sum(times[selected]) / np.sum(times)),
         "count_ratio": float(np.mean(selected)),
         "redundant_hits": redundant_hits,
-        # Önceki sürümde tüm tam-kapsamlı çözümler için oran 1 olabiliyordu.
+        
         "redundancy_ratio": redundant_hits / max(1, total_hits),
     }
 
@@ -134,7 +134,7 @@ def calculate_fitness(
 ):
     """Küçültülecek fitness; düşük değer daha iyi.
 
-    Eski 100% kapsamlı çağrılar için ``min_coverage=1`` varsayılandır.
+    
     Yeni telekom deneyinde ``min_coverage=.90`` ve metadata'daki kritik
     gereksinim indeksleri mutlaka birlikte verilmelidir.
 
